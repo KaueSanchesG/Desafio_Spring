@@ -37,10 +37,17 @@ public class ValorService {
     }
 
     public double desvioPadrao(List<Double> valores) {
-        double valorDesvioPadrao = 0;
+        double media = media(valores);
+        double somaQuadrados = 0;
 
-        return valorDesvioPadrao;
-    }
+        for (Double valor : valores) {
+            double diferenca = valor - media;
+            somaQuadrados += diferenca * diferenca;
+        }
+
+        double variancia = somaQuadrados / valores.size();
+        return Math.sqrt(variancia);
+    }""
 
     public double mediana(List<Double> valores) {
         Collections.sort(valores);
