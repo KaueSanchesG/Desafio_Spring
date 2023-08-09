@@ -30,7 +30,8 @@ public class ValorController {
         }
         return ResponseEntity.ok("Media: " + valorService.media(valores.getValores()) + "\n" +
                 "Desvio padrão: " + valorService.desvioPadrao(valores.getValores()) + "\n" +
-                "Mediana: " + valorService.mediana(valores.getValores()) + "\n"
+                "Mediana: " + valorService.mediana(valores.getValores()) + "\n" +
+                "Quantidade de dados recebidos: " + valores.getValores().size() + "\n"
         );
     }
 }
