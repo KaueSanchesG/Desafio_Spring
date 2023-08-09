@@ -28,6 +28,9 @@ public class ValorController {
         } catch (Exception e) {
             return ResponseEntity.badRequest().body("Erro " + e.getMessage());
         }
-        return ResponseEntity.ok("Valores cadastrados: " + valores.getValores());
+        return ResponseEntity.ok("Media: " + valorService.media(valores.getValores()) + "\n" +
+                "Desvio padrão: " + valorService.desvioPadrao(valores.getValores()) + "\n" +
+                "Mediana: " + valorService.mediana(valores.getValores()) + "\n"
+        );
     }
 }

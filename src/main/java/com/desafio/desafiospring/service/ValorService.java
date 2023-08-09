@@ -58,8 +58,4 @@ public class ValorService {
             return (mediana1 + mediana2) / 2;
         }
     }
-
-    public void calcResponse(List<Valores> valoresList){
-
-    }
 }
