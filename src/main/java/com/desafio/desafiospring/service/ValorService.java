@@ -9,10 +9,9 @@ import java.util.List;
 @Service
 public class ValorService {
 
-    public void cadastra(List<Valores> valoresList){
-        for(Valores valores: valoresList){
-            List<Double> doubleList;
-        }
+    public List<Double> cadastra(Valores valoresList){
+            List<Double> valores = valoresList.getValores();
+            return valores;
     }
 
     public List<Double> getAll() {

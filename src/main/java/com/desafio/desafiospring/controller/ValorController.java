@@ -2,6 +2,8 @@ package com.desafio.desafiospring.controller;
 
 import com.desafio.desafiospring.dto.Valores;
 import com.desafio.desafiospring.service.ValorService;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.Size;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -24,12 +26,12 @@ public class ValorController {
     }
 
     @PostMapping
-    public ResponseEntity<?> cadastrar(@RequestBody final List<Valores> valores) {
+    public ResponseEntity<?> cadastrar(@RequestBody @Valid @Size(min=20, message = "O minimo aceito para as operações são de 20 numeros") final Valores valores) {
         try {
-
+            valorService.cadastra(valores);
         } catch (Exception e) {
             return ResponseEntity.badRequest().body("Erro " + e.getMessage());
         }
-        return ResponseEntity.ok(valores);
+        return ResponseEntity.ok("Valores cadastrados: " + valores.getValores());
     }
 }
